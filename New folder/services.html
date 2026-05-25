@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - WanderWave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <strong>WanderWave</strong>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="services.html" class="current">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>Our Services</h1>
+            <p class="page-text">Comprehensive travel solutions tailored to your needs. From custom itineraries to local experiences, we make your trip feel effortless.</p>
+        </section>
+        <div class="section-nav-wrapper">
+            <div class="section-nav" id="section-nav">
+                <a href="#romantic">Romantic Escapes</a>
+                <a href="#adventure">Adventure Journeys</a>
+                <a href="#culture">Local Culture Tours</a>
+            </div>
+        </div>
+        <main>
+        <section class="section">
+            <div class="service-list">
+                <div class="service-item">
+                    <h4>Custom itineraries</h4>
+                    <p>We tailor every trip to your goals, budget, and preferred pace, so you get a trip that feels made for you.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Round-the-clock support</h4>
+                    <p>Day or night, our travel team is available to help with changes, updates, and local suggestions.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Local experiences</h4>
+                    <p>Enjoy unique events, guided tours, and hidden gems curated by travel experts.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Flexible booking</h4>
+                    <p>Change your plans easily with our flexible booking options and transparent travel support.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="romantic">
+            <h2>Romantic Escapes</h2>
+            <p class="page-text">Designed for couples and honeymooners, our Romantic Escapes blend luxury stays, private dining, and dreamy experiences.</p>
+            <ul class="feature-list">
+                <li>Secluded resorts and boutique hideaways</li>
+                <li>Sunset cruises, spa retreats, and intimate dinners</li>
+                <li>Personalized touches for a memorable getaway</li>
+            </ul>
+        </section>
+        <section class="section" id="adventure">
+            <h2>Adventure Journeys</h2>
+            <p class="page-text">For travelers who want action, our Adventure Journeys include hiking, water sports, wildlife encounters, and more.</p>
+            <ul class="feature-list">
+                <li>Guided hikes, canyoning, and mountain adventures</li>
+                <li>Surf, scuba, and other active travel experiences</li>
+                <li>Built for thrill-seekers and nature lovers</li>
+            </ul>
+        </section>
+        <section class="section" id="culture">
+            <h2>Local Culture Tours</h2>
+            <p class="page-text">Experience authentic local life with guided market visits, cultural tours, and immersive culinary journeys.</p>
+            <ul class="feature-list">
+                <li>Local guides, artisan workshops, and food tastings</li>
+                <li>Historic neighborhoods and cultural highlights</li>
+                <li>Meaningful travel that connects you to each destination</li>
+            </ul>
+        </section>
+        </main>
+        <footer>
+            © 2026 WanderWave Travel
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = Array.from(document.querySelectorAll('section[id]'));
+            const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
+
+            function updateActiveLink() {
+                const offset = window.scrollY + 140;
+                let currentId = sections.length ? sections[0].id : null;
+
+                sections.forEach(section => {
+                    if (section.offsetTop <= offset) {
+                        currentId = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    link.classList.toggle('active', href === '#' + currentId);
+                });
+            }
+
+            updateActiveLink();
+            window.addEventListener('scroll', updateActiveLink, { passive: true });
+        });
+    </script>
+</body>
+</html>
